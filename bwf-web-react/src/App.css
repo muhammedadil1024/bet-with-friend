@@ -1,0 +1,54 @@
+.App {
+  text-align: center;
+  color: white;
+}
+
+.App-header {
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.header {
+  background-color: var(--bg-color);
+  width: auto;
+  border-bottom: 3px solid var(--accent-color);
+}
+
+.header img {
+  height: 150px;
+  object-fit: cover;
+}
+
+.general-content {
+  background-color: var(--bg-color-light);
+  min-height: 100vh;
+}
+
+.sidebar {
+  text-align: start;
+  padding: 0 1rem 0 1rem;
+}
+
+.main {
+  padding: 1rem;
+}
+
+.login-link {
+  text-decoration: none;
+}
+
+/* media queries - responsiveness */
+
+@media screen and (max-width: 500px) {
+  .general-content {
+    grid-template-columns: 9rem 1fr;
+  }
+  .header img {
+    width: 250px;
+    height: auto;
+    object-fit: cover;
+  }
+  .main {
+    padding-top: 8px;
+  }
+}
