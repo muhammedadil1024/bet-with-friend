@@ -2,20 +2,20 @@ import { status } from "../../Utils";
 
 export const getGroups = () => {
     
-    return fetch(`http://127.0.0.1:8000/api/groups/`)
+    return fetch(`https://betwithfriend.codered.cloud/api/groups/`)
         .then(status)
         .catch((error) => console.error(error));
 };
 
 export const getGroup = (id) => {
     
-    return fetch(`http://127.0.0.1:8000/api/groups/${id}/`)
+    return fetch(`https://betwithfriend.codered.cloud/api/groups/${id}/`)
         .then(status)
         .catch((error) => console.error(error));
 };
 
 export const joinGroup = (data, token) => {
-    return fetch(`http://127.0.0.1:8000/api/members/join/`, {
+    return fetch(`https://betwithfriend.codered.cloud/api/members/join/`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -28,7 +28,7 @@ export const joinGroup = (data, token) => {
 };
 
 export const leaveGroup = (data, token) => {
-    return fetch(`http://127.0.0.1:8000/api/members/leave/`, {
+    return fetch(`https://betwithfriend.codered.cloud/api/members/leave/`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -41,7 +41,7 @@ export const leaveGroup = (data, token) => {
 };
 
 export const postComment = (token, description, group, user) => {
-    return fetch(`http://127.0.0.1:8000/api/comments/`, {
+    return fetch(`https://betwithfriend.codered.cloud/api/comments/`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

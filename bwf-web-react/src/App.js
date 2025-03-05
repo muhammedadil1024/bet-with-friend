@@ -7,6 +7,7 @@ import "./App.css";
 import Theme from './Theme';
 import { AuthProvider } from './components/hooks/UseAuth';
 import { useState } from 'react';
+import Footer from './components/layout/Footer';
 
 function App() {
 
@@ -30,6 +31,9 @@ function App() {
                             <Sidebar open={open} toggleDrawer={toggleDrawer} />
                             <Main />
                     </section>
+                    <footer>
+                        <Footer />
+                    </footer>
                 </div>
             </BrowserRouter>
         </AuthProvider>

@@ -1,7 +1,7 @@
 import { status } from "../../Utils";
 
 export const getEvent = (token, id) => {
-    return fetch(`http://127.0.0.1:8000/api/events/${id}/`, {
+    return fetch(`https://betwithfriend.codered.cloud/api/events/${id}/`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -13,7 +13,7 @@ export const getEvent = (token, id) => {
 };
 
 export const createEvent = (data, token) => {
-    return fetch(`http://127.0.0.1:8000/api/events/`, {
+    return fetch(`https://betwithfriend.codered.cloud/api/events/`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -26,7 +26,7 @@ export const createEvent = (data, token) => {
 };
 
 export const sendBet = (token, item) => {
-    return fetch(`http://127.0.0.1:8000/api/bets/place_bet/`, {
+    return fetch(`https://betwithfriend.codered.cloud/api/bets/place_bet/`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

@@ -1,7 +1,7 @@
 import { status } from "../../Utils";
 
 export const auth = (credentials) => {
-    return fetch("http://127.0.0.1:8000/api/authenticate/", {
+    return fetch("https://betwithfriend.codered.cloud/api/authenticate/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -12,7 +12,7 @@ export const auth = (credentials) => {
 };
 
 export const register = (userData) => {
-    return fetch("http://127.0.0.1:8000/api/users/", {
+    return fetch("https://betwithfriend.codered.cloud/api/users/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -28,7 +28,7 @@ export const register = (userData) => {
 };
 
 export const uploadAvatar = (profileId, data) => {
-    return fetch(`http://127.0.0.1:8000/api/profile/${profileId}/`, {
+    return fetch(`https://betwithfriend.codered.cloud/api/profile/${profileId}/`, {
         method: "PUT",
         body: data,
     })
@@ -38,7 +38,7 @@ export const uploadAvatar = (profileId, data) => {
 
 export const changePassword = (userData, userId, token) => {
 
-    return fetch(`http://127.0.0.1:8000/api/users/${userId}/change_password/`, {
+    return fetch(`https://betwithfriend.codered.cloud/api/users/${userId}/change_password/`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
