@@ -48,12 +48,13 @@ const Sidebar = ({ open, toggleDrawer }) => {
             role="presentation"
             onClick={toggleDrawer(false)}
         >
-            <Button color="primary" variant="contained">
-                <Link to={"/"} style={{"textDecoration": "none"}}>Home</Link>
-            </Button>
-            
             {!authData ? (
                 <>
+                    <Button color="primary" variant="contained">
+                        <Link to={"/"} style={{ textDecoration: "none", color: "black" }}>
+                            Home
+                        </Link>
+                    </Button>
                     <Button color="primary" variant="contained">
                         <Link className="login-link" to={"/login"}>
                             Login
@@ -68,6 +69,11 @@ const Sidebar = ({ open, toggleDrawer }) => {
             ) : (
                 <>
                     <User user={authData?.user} />
+                    <Button color="primary" variant="contained">
+                        <Link to={"/"} style={{ textDecoration: "none", color: "black", "marginTop": "0.5rem" }}>
+                            Home
+                        </Link>
+                    </Button>
                     <Button color="primary" variant="contained" onClick={account}>
                         My Account
                     </Button>
