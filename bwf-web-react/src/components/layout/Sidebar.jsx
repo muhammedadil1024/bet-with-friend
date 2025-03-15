@@ -36,7 +36,7 @@ const Sidebar = ({ open, toggleDrawer }) => {
                     sm: 250,
                     md: 250,
                     lg: 250,
-                    xl: 250
+                    xl: 250,
                 },
                 height: "100%",
                 display: "flex",
@@ -48,6 +48,10 @@ const Sidebar = ({ open, toggleDrawer }) => {
             role="presentation"
             onClick={toggleDrawer(false)}
         >
+            <Button color="primary" variant="contained">
+                <Link to={"/"} style={{"textDecoration": "none"}}>Home</Link>
+            </Button>
+            
             {!authData ? (
                 <>
                     <Button color="primary" variant="contained">
@@ -64,11 +68,11 @@ const Sidebar = ({ open, toggleDrawer }) => {
             ) : (
                 <>
                     <User user={authData?.user} />
-                    <Button color="primary" variant="contained" sx={{ marginTop: "2rem" }} onClick={logout}>
-                        Logout
-                    </Button>
                     <Button color="primary" variant="contained" onClick={account}>
                         My Account
+                    </Button>
+                    <Button color="primary" variant="contained" onClick={logout}>
+                        Logout
                     </Button>
                 </>
             )}

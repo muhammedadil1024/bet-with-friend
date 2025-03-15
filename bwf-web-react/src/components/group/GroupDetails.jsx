@@ -30,7 +30,7 @@ const GroupDetails = () => {
     const [isAdmin, setIsAdmin] = useState(false)
 
     useEffect(() => {
-
+        // authorising user
         if(data?.members){
             if(authData?.user){
                 setInGroup(!!data?.members?.find(member => member.user?.id === authData?.user?.id))
@@ -41,6 +41,7 @@ const GroupDetails = () => {
     }, [data, authData]);
 
 
+    // for joining a group
     const joinHere = async () => {
         try {
             const response = await joinGroup({ user: authData?.user?.id, group: group?.id }, authData?.token);
@@ -55,6 +56,7 @@ const GroupDetails = () => {
         }
     }
 
+    // for leaving a group
     const leaveHere = async () => {
         try {
             const response = await leaveGroup({ user: authData.user.id, group: group.id }, authData?.token);
@@ -66,6 +68,7 @@ const GroupDetails = () => {
         }
     };
 
+    // navigating to event creation form
     const addEvent = () => {
         navigate('/event-form', { state: { group } }); 
     }

@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Stack from "@mui/material/Stack";
+import Box from '@mui/material/Box';
 
 const EventList = ({ events }) => {
 
@@ -36,9 +37,13 @@ const EventList = ({ events }) => {
             {events.length > 0 ? (
                 <Stack spacing={2} mb={2} flexDirection="row" justifyContent="center" flexWrap="wrap" alignItems="center">
                     {events?.map((event) => {
-                        const format = "yyyy-mm-dd'T'hh:mm:ss'Z'";
+                        const format = "yyyy-MM-dd'T'HH:mm:ss'Z'";
 
                         const evtTime = DateTime.fromFormat(event.time, format);
+
+                        const now = DateTime.local();
+
+                        const eventStatusFlag = now > evtTime ? "Ended" : "Ongoing";
 
                         return (
                             <div
@@ -56,8 +61,8 @@ const EventList = ({ events }) => {
                                             color: "white",
                                             padding: "1rem",
                                             cursor: "pointer",
-
                                             transition: "transform 0.3s, box-shadow 0.3s",
+                                            position: "relative",
                                             "&:hover": {
                                                 transform: "scale(1.05)",
                                                 boxShadow: 6,
@@ -65,6 +70,36 @@ const EventList = ({ events }) => {
                                             },
                                         }}
                                     >
+                                        {/* Triangular flag in the top-left corner */}
+                                        <Box
+                                            sx={{
+                                                position: "absolute",
+                                                top: 0,
+                                                left: 0,
+                                                width: 80,
+                                                height: 80,
+                                                backgroundColor: eventStatusFlag === "Ended" ? "info.main" : "success.main",
+                                                clipPath: "polygon(0 0, 90% 0, 0 90%)",
+                                                display: "flex",
+                                                alignItems: "center",
+                                                justifyContent: "center",
+                                            }}
+                                        >
+                                            <Typography
+                                                variant="caption"
+                                                sx={{
+                                                    position: "absolute",
+                                                    top: "10px",
+                                                    left: "10px", 
+                                                    transform: "rotate(-45deg) translate(-5px, 5px)",
+                                                    color: "white",
+                                                    fontWeight: "bold",
+                                                    userSelect: "none",
+                                                }}
+                                            >
+                                                {eventStatusFlag}
+                                            </Typography>
+                                        </Box>
                                         <CardContent>
                                             <Typography
                                                 variant="h5"
