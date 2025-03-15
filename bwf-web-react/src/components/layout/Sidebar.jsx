@@ -70,7 +70,7 @@ const Sidebar = ({ open, toggleDrawer }) => {
                 <>
                     <User user={authData?.user} />
                     <Button color="primary" variant="contained">
-                        <Link to={"/"} style={{ textDecoration: "none", color: "black", "marginTop": "0.5rem" }}>
+                        <Link to={"/"} style={{ textDecoration: "none", color: "black" }}>
                             Home
                         </Link>
                     </Button>
